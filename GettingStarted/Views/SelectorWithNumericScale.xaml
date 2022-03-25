@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:charts="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:GettingStarted"
+             Title="Numeric Scale"
+             x:Class="GettingStarted.SelectorWithNumericScale"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <local:ChartViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="15"
+                         MaximumWidthRequest="400"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+        <sliders:SfRangeSelector Minimum="10"
+                                 Maximum="100"
+                                 RangeStart="27"
+                                 RangeEnd="75"
+                                 ShowLabels="True"
+                                 HeightRequest="221">
+
+            <sliders:SfRangeSelector.TrackStyle>
+                <sliders:SliderTrackStyle InactiveFill="#25450775"
+                                          ActiveFill="#450775" />
+            </sliders:SfRangeSelector.TrackStyle>
+
+            <sliders:SfRangeSelector.ThumbStyle>
+                <sliders:SliderThumbStyle Radius="8"
+                                          Fill="#450775" />
+            </sliders:SfRangeSelector.ThumbStyle>
+
+            <sliders:SfRangeSelector.ThumbOverlayStyle>
+                <sliders:SliderThumbOverlayStyle Radius="20"
+                                                 Fill="#15450775" />
+            </sliders:SfRangeSelector.ThumbOverlayStyle>
+
+            <charts:SfCartesianChart>
+                <charts:SfCartesianChart.XAxes>
+                    <charts:NumericalAxis IsVisible="False"
+                                          ShowMajorGridLines="False" />
+                </charts:SfCartesianChart.XAxes>
+
+                <charts:SfCartesianChart.YAxes>
+                    <charts:NumericalAxis IsVisible="False"
+                                          ShowMajorGridLines="False"
+                                          Minimum="250" />
+                </charts:SfCartesianChart.YAxes>
+
+                <charts:AreaSeries ItemsSource="{Binding Source}"
+                                   XBindingPath="NumX"
+                                   YBindingPath="Y"
+                                   Stroke="#450775"
+                                   StrokeWidth="1">
+                    <charts:AreaSeries.Fill>
+                        <LinearGradientBrush EndPoint="0, 1">
+                            <GradientStopCollection>
+                                <GradientStop Color="#6e14b3" />
+                                <GradientStop Color="#106e14b3"
+                                              Offset="0.4" />
+                            </GradientStopCollection>
+                        </LinearGradientBrush>
+                    </charts:AreaSeries.Fill>
+                </charts:AreaSeries>
+            </charts:SfCartesianChart>
+        </sliders:SfRangeSelector>
+
+        <Label Text="Numeric Scale"
+               FontSize="15"
+               TranslationY="-25"
+               Opacity="0.5"
+               HorizontalOptions="Center" />
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:charts="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:GettingStarted"
+             Title="Zooming"
+             x:Class="GettingStarted.ZoomingPage"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <local:ChartViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="15"
+                         MaximumWidthRequest="400"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+        <charts:SfCartesianChart HeightRequest="200">
+            <charts:SfCartesianChart.XAxes>
+                <charts:DateTimeAxis Minimum="{Binding RangeStart, Source={x:Reference Selector}}"
+                                     Maximum="{Binding RangeEnd, Source={x:Reference Selector}}" />
+            </charts:SfCartesianChart.XAxes>
+
+            <charts:SfCartesianChart.YAxes>
+                <charts:NumericalAxis />
+            </charts:SfCartesianChart.YAxes>
+
+            <charts:LineSeries ItemsSource="{Binding Source}"
+                               XBindingPath="X"
+                               YBindingPath="Y" />
+        </charts:SfCartesianChart>
+
+        <sliders:SfDateTimeRangeSelector x:Name="Selector"
+                                         Minimum="1990-01-01"
+                                         Maximum="1991-01-01"
+                                         RangeStart="1990-03-01"
+                                         RangeEnd="1990-09-01"
+                                         Interval="1"
+                                         IntervalType="Months"
+                                         ShowTicks="True"
+                                         ShowLabels="True"
+                                         DateFormat="MMM"
+                                         HeightRequest="150">
+
+            <sliders:SfDateTimeRangeSelector.Tooltip>
+                <sliders:SliderTooltip ShowAlways="True" DateFormat="dd MMM" />
+            </sliders:SfDateTimeRangeSelector.Tooltip>
+
+            <charts:SfCartesianChart>
+                <charts:SfCartesianChart.XAxes>
+                    <charts:DateTimeAxis IsVisible="False"
+                                         ShowMajorGridLines="False" />
+                </charts:SfCartesianChart.XAxes>
+
+                <charts:SfCartesianChart.YAxes>
+                    <charts:NumericalAxis IsVisible="False"
+                                          ShowMajorGridLines="False"
+                                          Minimum="250" />
+                </charts:SfCartesianChart.YAxes>
+
+                <charts:AreaSeries ItemsSource="{Binding Source}"
+                                   XBindingPath="X"
+                                   YBindingPath="Y" />
+            </charts:SfCartesianChart>
+        </sliders:SfDateTimeRangeSelector>
+    </VerticalStackLayout>
+
+</ContentPage>

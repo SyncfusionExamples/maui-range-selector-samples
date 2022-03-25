@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sliders="clr-namespace:Syncfusion.Maui.Sliders;assembly=Syncfusion.Maui.Sliders"
+             xmlns:charts="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:GettingStarted"
+             Title="Ticks"
+             x:Class="GettingStarted.SelectorWithTicks"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <local:ChartViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="15"
+                         MaximumWidthRequest="400"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+        <sliders:SfDateTimeRangeSelector Minimum="1990-1-1"
+                                         Maximum="1991-1-1"
+                                         RangeStart="1990-3-1"
+                                         RangeEnd="1990-10-1"
+                                         Interval="1"
+                                         MinorTicksPerInterval="3"
+                                         IntervalType="Months"
+                                         ShowTicks="True"
+                                         HeightRequest="221">
+
+            <sliders:SfDateTimeRangeSelector.TrackStyle>
+                <sliders:SliderTrackStyle InactiveFill="#25450775"
+                                          ActiveFill="#450775" />
+            </sliders:SfDateTimeRangeSelector.TrackStyle>
+
+            <sliders:SfDateTimeRangeSelector.ThumbStyle>
+                <sliders:SliderThumbStyle Radius="8"
+                                          Fill="#450775" />
+            </sliders:SfDateTimeRangeSelector.ThumbStyle>
+
+            <sliders:SfDateTimeRangeSelector.ThumbOverlayStyle>
+                <sliders:SliderThumbOverlayStyle Radius="20"
+                                                 Fill="#15450775" />
+            </sliders:SfDateTimeRangeSelector.ThumbOverlayStyle>
+
+            <sliders:SfDateTimeRangeSelector.MajorTickStyle>
+                <sliders:SliderTickStyle InactiveFill="#25450775"
+                                         ActiveFill="#450775"
+                                         Offset="2" />
+            </sliders:SfDateTimeRangeSelector.MajorTickStyle>
+
+            <sliders:SfDateTimeRangeSelector.MinorTickStyle>
+                <sliders:SliderTickStyle InactiveFill="#25450775"
+                                         ActiveFill="#450775"
+                                         Offset="2"
+                                         ActiveSize="1,4"
+                                         InactiveSize="1,4" />
+            </sliders:SfDateTimeRangeSelector.MinorTickStyle>
+
+            <charts:SfCartesianChart>
+                <charts:SfCartesianChart.XAxes>
+                    <charts:NumericalAxis IsVisible="False"
+                                          ShowMajorGridLines="False" />
+                </charts:SfCartesianChart.XAxes>
+
+                <charts:SfCartesianChart.YAxes>
+                    <charts:NumericalAxis IsVisible="False"
+                                          ShowMajorGridLines="False"
+                                          Minimum="250" />
+                </charts:SfCartesianChart.YAxes>
+
+                <charts:AreaSeries ItemsSource="{Binding Source}"
+                                   XBindingPath="X"
+                                   YBindingPath="Y"
+                                   Stroke="#450775"
+                                   StrokeWidth="1">
+                    <charts:AreaSeries.Fill>
+                        <LinearGradientBrush EndPoint="0, 1">
+                            <GradientStopCollection>
+                                <GradientStop Color="#6e14b3" />
+                                <GradientStop Color="#106e14b3"
+                                              Offset="0.4" />
+                            </GradientStopCollection>
+                        </LinearGradientBrush>
+                    </charts:AreaSeries.Fill>
+                </charts:AreaSeries>
+            </charts:SfCartesianChart>
+        </sliders:SfDateTimeRangeSelector>
+    </VerticalStackLayout>
+
+</ContentPage>
