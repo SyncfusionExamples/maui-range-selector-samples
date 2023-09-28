@@ -1,5 +1,15 @@
 # maui-range-selector-samples
+## .NET MAUI Range Selector Overview
 
+The Syncfusion .NET MAUI Range Selector (SfRangeSelector) is a highly interactive UI control, allowing users to select a range values within a minimum and maximum limit. It provides rich features, such as track, labels, ticks, dividers, and tooltip.
+
+## Key features
+* **Numeric support** - Provided functionality for selecting numeric values.
+* **Content** - Add a control of any type inside the range selector. It is also possible to add Charts controls.
+* **Labels** - Render labels with option to customize their formats based on your requirements.
+* **Ticks and dividers** - Provided an option to show ticks and dividers based on the slider interval. Also, minor ticks can be enabled to indicate the values between each * * interval. These options present the selected value in a more intuitive way for end users.
+* **Discrete mode** - Able to move the thumb in a discrete manner based on the provided step value.
+* **Tooltip** - Render a tooltip to show the selected value clearly. You can also customize the format of the text shown in the tooltip.
 
 The [`Content`](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Sliders.RangeSelectorBase-1.html#Syncfusion_Maui_Sliders_RangeSelectorBase_1_Content) property will add the content to the Range Selector. Add any control within the Range Selector with this property. In most cases, the [Charts](https://www.syncfusion.com/maui-controls/maui-cartesian-charts) will be added as a content.
 
@@ -72,12 +82,14 @@ rangeSelector.Content = chart;
 
 The [`ShowLabels`](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Sliders.RangeView-1.html#Syncfusion_Maui_Sliders_RangeView_1_ShowLabels) property enables the labels which renders on given interval.
 
+![image](https://github.com/SuryaKaran2143/maui-range-selector-samples/assets/113962276/0434513a-ce19-44e9-87e8-28525a8f9c38)
 
 
 ## Enable ticks
 
 The [`ShowTicks`](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Sliders.RangeView-1.html#Syncfusion_Maui_Sliders_RangeView_1_ShowTicks) property enables the ticks in the Range Selector, while the [`MinorTicksPerInterval`](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.Sliders.RangeView-1.html#Syncfusion_Maui_Sliders_RangeView_1_MinorTicksPerInterval) property enables the minor ticks between the major ticks.
 
+![image](https://github.com/SuryaKaran2143/maui-range-selector-samples/assets/113962276/682955ef-9809-4b7a-a2ea-6cf42ccb60ca)
 
 
 ## Inverse the Range Selector
